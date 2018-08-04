@@ -7,7 +7,8 @@
 
 4.Annotate
 ## Import Modules
-  ```python
+```python
+
   import numpy as np 
   import cv2
   import matplotlib.pyplot as plt
@@ -16,6 +17,7 @@
   ```
 ## 1. Functions used 
 ```python
+
 def grayscale(img):
 	return cv2.cvtColor(img,cv2.COLOR_RGB2GRAY)
 
@@ -68,23 +70,23 @@ def filter_colors(image):
   ## 2. Constants
   ```python
   
-kernel_size = 3
+	kernel_size = 3
 
-#canny
-low_threshold = 50
-high_threshold = 150
+	#canny
+	low_threshold = 50
+	high_threshold = 150
 
-#ROI
-trap_bottom_width = 0.85
-trap_top_width = 0.07
-trap_height = 0.4
+	#ROI
+	trap_bottom_width = 0.85
+	trap_top_width = 0.07
+	trap_height = 0.4
 
-#hough
-rho = 1
-theta =1*np.pi/180
-threshold = 14
-min_line_length = 15
-max_line_gap = 20
+	#hough
+	rho = 1
+	theta =1*np.pi/180
+	threshold = 14
+	min_line_length = 15
+	max_line_gap = 20
 ```
 ## 3. Drawline function
 plot lines using cordinates returned by Hough
@@ -213,15 +215,15 @@ def annotate(image_in):
 	return annotated_image
 
 ```
-
-  ## Testing images
-  ```python
-  image = mpimg.imread('test/solidYellowCurve.jpg')
-  out=annotate(image)
-  mpimg.imsave('out/gray',out)
-  ```
-  ## Testing video clips 
-  ```python
+## Testing images
+ ```python
+  
+	  image = mpimg.imread('test/solidYellowCurve.jpg')
+	  out=annotate(image)
+	  mpimg.imsave('out/gray',out)
+```
+## Testing video clips 
+```python
   def processimg(image):
     result = annotate(image)
     return result
@@ -230,5 +232,5 @@ def annotate(image_in):
   clip1 = VideoFileClip("test/testvideo.mp4")
   clip = clip1.fl_image(processimg)
   clip.write_videofile(output,audio= False)
-  ```
+ ```
 
